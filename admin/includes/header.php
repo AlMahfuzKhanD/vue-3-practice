@@ -1,3 +1,7 @@
+<?php ob_start(); ?> //for redirecting to any page
+<?php include ("init.php"); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
