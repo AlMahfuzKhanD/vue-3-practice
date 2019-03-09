@@ -11,14 +11,25 @@
             <?php
 
 
-
-            $user = new User();
-            $result_set = $user->find_all_users();
+            include ("user.php");
+            
+            $result_set = User::find_all_users(); // static methods are called by writing first letter of class in capital letter and two clone like :: ... it is used to avoid instantiating object of class
 
             while ($row = mysqli_fetch_array($result_set)){
 
                 echo $row['username'] . "<br>";
             }
+
+            $result_id = User::find_users_by_id();
+            while ($row = mysqli_fetch_array($result_id)) {
+                echo "when id is". " ". $row['id']. " " . "user name is". " " . $row['username'] . "<br>";
+            }
+
+            $calling_by_id = User::find_users_by_id_with_parameter(1);
+            echo $calling_by_id['username'] . "<br>";
+
+
+
 
 
 
