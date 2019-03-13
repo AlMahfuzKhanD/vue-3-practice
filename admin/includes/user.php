@@ -42,23 +42,38 @@ class User{
     	return $find_user;
     }
 
-    public static function find_this_query($sent_sql){
+    public static function find_this_query($sent_sql){ // this method is used to sent sql query
     	global $database;
     	$result_set = $database->query($sent_sql);
-    	return $result_set;
+
+    	$the_object_array = array();
+    	while($row = mysqli_fetch_array($result_set)){
+    		$the_object_array[] = self::instantiation($row);
+    	}
+    	return $the_object_array;
     }
 
 
-    public static function instantiation($calling_by_id){ //this method is used to instantiate class
+    public static function instantiation($the_record){ //this method is used to instantiate class
     	$the_object = new self;
 
-             $the_object->id = $calling_by_id['id'];
+             /*$the_object->id = $calling_by_id['id'];
              $the_object->username = $calling_by_id['username'];
              $the_object->password = $calling_by_id['password'];
              $the_object->first_name = $calling_by_id['first_name'];
-             $the_object->last_name = $calling_by_id['last_name'];
+             $the_object->last_name = $calling_by_id['last_name'];*/
 
+foreach ($the_record as $the_attribute => $value) {
+	if($the_object->has_the_attribute($the_attribute)){ // check whether the object has value or not
+$the_object->$the_attribute = $value;
+	}
+} // end of foreach
 
              return $the_object;
-    }
-}
+    } //end of instantiation
+
+    private function has_the_attribute($the_attribute){
+$object_properties = get_object_vars($this);
+return array_key_exists($the_attribute, $object_properties);
+    } // end of has_the_attribute
+} //end of user class
