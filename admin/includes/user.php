@@ -17,30 +17,39 @@ class User{
 	public $first_name;
 	public $last_name;
 
-    public static function find_all_users(){
+	public static function find_all_users(){
         //global $database;
         //$result_set = $database->query("SELECT * FROM users");
         //return $result_set;
-        
-        return self::find_this_query("SELECT * FROM users"); 
-        
+
+		return self::find_this_query("SELECT * FROM users"); 
 
 
-    }
+
+	}
 
 
-    public static function find_users_by_id(){
-    	global $database;
-    	$result_user_id = $database->query("SELECT * FROM users WHERE id=3");
-    	return $result_user_id;
-    }
+	public static function find_users_by_id(){
+		global $database;
+		$result_user_id = $database->query("SELECT * FROM users WHERE id=2");
+		return $result_user_id;
+	}
 
-    public static function find_users_by_id_with_parameter($user_id){
-    	global $database;
-    	$result_user_id = $database->query("SELECT * FROM users WHERE id=$user_id LIMIT 1");
-    	$find_user = mysqli_fetch_array($result_user_id);
-    	return $find_user;
-    }
+	public static function find_users_by_id_with_parameter($user_id){
+		global $database;
+		$result_array = self::find_this_query("SELECT * FROM users WHERE id=$user_id LIMIT 1");
+
+return !empty($result_array) ? array_shift($result_array) : false;
+
+/*if(!empty($result_array)){ // check whether array empte or not
+$first_item = array_shift($result_array); // return first item of array
+return $first_item;
+}else{
+	return false;
+}*/
+
+return $find_user;
+}
 
     public static function find_this_query($sent_sql){ // this method is used to sent sql query
     	global $database;
@@ -63,17 +72,17 @@ class User{
              $the_object->first_name = $calling_by_id['first_name'];
              $the_object->last_name = $calling_by_id['last_name'];*/
 
-foreach ($the_record as $the_attribute => $value) {
+             foreach ($the_record as $the_attribute => $value) {
 	if($the_object->has_the_attribute($the_attribute)){ // check whether the object has value or not
-$the_object->$the_attribute = $value;
+		$the_object->$the_attribute = $value;
 	}
 } // end of foreach
 
-             return $the_object;
+return $the_object;
     } //end of instantiation
 
     private function has_the_attribute($the_attribute){
-$object_properties = get_object_vars($this);
-return array_key_exists($the_attribute, $object_properties);
+    	$object_properties = get_object_vars($this);
+    	return array_key_exists($the_attribute, $object_properties);
     } // end of has_the_attribute
 } //end of user class

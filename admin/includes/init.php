@@ -7,8 +7,10 @@
  */
  /* this init is created to initialize all the path of the project. every file what is neeeded to raun this project will be included here*/
 
+include("functions.php");
 include("new_config.php");
 include("database.php");
+include("user.php");
 
 
 
