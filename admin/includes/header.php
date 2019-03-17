@@ -1,5 +1,5 @@
 <?php ob_start(); ?>  <!-- ob start is used to turn on output buffering.. it works for redirecting to any page -->
-<?php include ("init.php"); ?> <!-- //every path has included in init.php file -->
+<?php require_once ("init.php"); ?> <!-- //every path has included in init.php file -->
 
 
 <!DOCTYPE html>
