@@ -29,6 +29,7 @@ class User{
 	}
 
 
+
 	public static function find_users_by_id(){
 		global $database;
 		$result_user_id = $database->query("SELECT * FROM users WHERE id=2");

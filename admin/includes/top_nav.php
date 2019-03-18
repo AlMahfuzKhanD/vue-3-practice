@@ -96,8 +96,22 @@
             </li>
         </ul>
     </li>
+    <?php
+
+    $userid = $_SESSION['user_id'];
+    //$username = User::find_this_query("SELECT username FROM users WHERE id=$userid");
+    //echo implode(' ', $username);
+
+
+
+
+
+
+
+
+    ?>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['username']; ?> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userid;?> <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
                 <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -116,7 +130,3 @@
     </li>
 </ul>
 
-<?php
-
-
-?>
