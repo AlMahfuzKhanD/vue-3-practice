@@ -41,7 +41,7 @@ class Database{
     }
 
 
-    public function escape_string($string){
+    public function escape_string($string){ // for cleaning data like what space etc
         $escaped_string = $this->connection->real_escape_string($string);
         return $escaped_string;
     }

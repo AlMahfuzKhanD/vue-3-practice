@@ -13,4 +13,8 @@ if(is_file($the_path) && !class_exists($class)){
 
 spl_autoload_register('classAutoLoader');
 
+function redirect($location){  // this function is used to redirecting in any page
+    header("Location: {$location}");
+}
+
 ?>

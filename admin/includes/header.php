@@ -1,6 +1,13 @@
 <?php ob_start(); ?>  <!-- ob start is used to turn on output buffering.. it works for redirecting to any page -->
 <?php require_once ("init.php"); ?> <!-- //every path has included in init.php file -->
 
+<?php
+    /*if(!$session->is_signed_in()){ // if not signed in sent to login page
+        redirect("login.php");
+    }*/
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
