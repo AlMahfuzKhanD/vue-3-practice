@@ -46,7 +46,7 @@ class Database{
         return $escaped_string;
     }
 
-    public function the_insert_id(){
+    public function the_insert_id(){ // for pulling the id of last insert query
         return $this->connection->insert_id;
     }
 

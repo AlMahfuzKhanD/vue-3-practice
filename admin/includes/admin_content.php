@@ -38,9 +38,17 @@
             }*/
 
 
-            $calling_by_id = User::find_users_by_id_with_parameter(1);
-            echo $calling_by_id->username;
-            
+            /*$calling_by_id = User::find_users_by_id_with_parameter(1);
+            echo $calling_by_id->username;*/
+
+            $user = new User();
+            $user->username = "Example";
+            $user->password = "password";
+            $user->first_name = "first_name";
+            $user->last_name = "last_name";
+
+            $user->create();
+
 
 
 
