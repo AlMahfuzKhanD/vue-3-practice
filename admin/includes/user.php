@@ -123,7 +123,15 @@ return $the_object;
 
     } //end of property method
 
-    
+    protected function clean_properties(){ // for cleaning the value using scape string
+        global $database;
+        $clean_properties = array();
+
+        foreach ($this->properties() as $key => $value){
+            $clean_properties[] = $database->escape_string($value);
+        }
+        return $clean_properties;
+    }
 
 
     public function save(){ // this method detects the user is already in the database or not. if it is there it will execute update() otherwise it will execute create();
@@ -131,7 +139,7 @@ return $the_object;
     } //end of save
 
 
-
+    
 
 
 
