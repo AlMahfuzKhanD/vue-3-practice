@@ -125,4 +125,20 @@ return $the_object;
 
     } //end of create
 
+    public function update(){
+        global $database;
+        $sql = "UPDATE users SET ";
+        $sql .= "username= '" . $database->escape_string($this->username) . "', ";
+        $sql .= "password= '" . $database->escape_string($this->password) . "', ";
+        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
+        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "' ";
+        $sql .= " WHERE id= " . $database->escape_string($this->id) ;
+
+        $database->query($sql);
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false; //mysqli_affected_rows returns the number of affected rows in the previous query
+
+
+
+    } //end of update
+
 } //end of user class
