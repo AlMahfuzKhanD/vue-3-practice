@@ -58,11 +58,11 @@
 
             ######### testing update method ###########
 
-            /*$user = User::find_users_by_id_with_parameter(7);
-            $user->username = "mahfuz";
-            $user->password = "pass";
+           /* $user = User::find_users_by_id_with_parameter(9);
+            $user->username = "username";
+            $user->password = "password";
             $user->first_name = "khan";
-            $user->last_name = "md";
+            $user->last_name = "mahfuz";
             $user->update();*/
 
             ######## testing delete method ###########

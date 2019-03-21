@@ -123,10 +123,16 @@ return $the_object;
 
     } //end of property method
 
+    
+
 
     public function save(){ // this method detects the user is already in the database or not. if it is there it will execute update() otherwise it will execute create();
         return isset($this->id) ? $this->update() : $this->create();
-    }
+    } //end of save
+
+
+
+
 
 
     public function create(){
@@ -149,11 +155,16 @@ return $the_object;
 
     public function update(){
         global $database;
+        $properties = $this->properties(); // for holding all the object property
+        $property_pairs = array(); // for holding the attribute of database which will be updated
+
+        foreach ($properties as $key => $value){
+            $property_pairs[] = "{$key}='{$value}'";
+        }
+
+
         $sql = "UPDATE  " .self::$db_table . "  SET ";
-        $sql .= "username= '" . $database->escape_string($this->username) . "', ";
-        $sql .= "password= '" . $database->escape_string($this->password) . "', ";
-        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
-        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "' ";
+        $sql .= implode(", ", $property_pairs);
         $sql .= " WHERE id= " . $database->escape_string($this->id) ;
 
         $database->query($sql);
