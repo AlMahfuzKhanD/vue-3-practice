@@ -58,9 +58,15 @@
 
             ######### testing update method ###########
             //$user = new User();
-            $user = User::find_users_by_id_with_parameter(3);
+            /*$user = User::find_users_by_id_with_parameter(3);
             $user->last_name = "khan";
-            $user->update();
+            $user->update();*/
+
+            ######## testing delete method ###########
+
+            $user = User::find_users_by_id_with_parameter(4);
+            $user->delete();
+
 
 
 

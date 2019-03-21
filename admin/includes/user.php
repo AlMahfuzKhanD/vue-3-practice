@@ -141,4 +141,19 @@ return $the_object;
 
     } //end of update
 
+    public function delete(){
+        global $database;
+        $sql = "DELETE from users";
+        $sql .= " WHERE id= " . $database->escape_string($this->id);
+        $sql .= " LIMIT 1";
+
+        $database->query($sql); // execution of query
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false; //mysqli_affected_rows returns the number of affected rows in the previous query
+
+
+
+    } //end of delete
+
+
+
 } //end of user class
