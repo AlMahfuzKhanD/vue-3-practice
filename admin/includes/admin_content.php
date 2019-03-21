@@ -48,24 +48,42 @@
 
             ######### testing create method ###########
 
-            /*$user = new User();
-            $user->username = "Example";
-            $user->password = "password";
-            $user->first_name = "first_name";
-            $user->last_name = "last_name";
+           /* $user = new User();
+            $user->username = "you";
+            $user->password = "are";
+            $user->first_name = "being";
+            $user->last_name = "created";
 
             $user->create();*/
 
             ######### testing update method ###########
-            //$user = new User();
-            /*$user = User::find_users_by_id_with_parameter(3);
-            $user->last_name = "khan";
+
+            /*$user = User::find_users_by_id_with_parameter(7);
+            $user->username = "mahfuz";
+            $user->password = "pass";
+            $user->first_name = "khan";
+            $user->last_name = "md";
             $user->update();*/
 
             ######## testing delete method ###########
 
-            $user = User::find_users_by_id_with_parameter(4);
-            $user->delete();
+            /*$user = User::find_users_by_id_with_parameter(6);
+            $user->delete();*/
+
+            ######## testing save method for update ###########
+
+            /*$user = User::find_users_by_id_with_parameter(2);
+            $user->username = "khan";
+            $user->save();*/
+
+            ######## testing save method for create ###########
+            /*$user = new User();
+
+            $user->username = "almahfuz";
+            $user->password = "123";
+            $user->first_name = "mahfuz";
+            $user->last_name = "khan";
+            $user->save();*/
 
 
 

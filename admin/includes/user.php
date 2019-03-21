@@ -11,6 +11,7 @@
 
 class User{
 
+    protected static $db_table = "users";
 	public $id;
 	public $username;
 	public $password;
@@ -106,9 +107,15 @@ return $the_object;
     	return array_key_exists($the_attribute, $object_properties);
     } // end of has_the_attribute
 
+
+    public function save(){ // this method detects the user is already in the database or not. if it is there it will execute update() otherwise it will execute create();
+        return isset($this->id) ? $this->update() : $this->create();
+    }
+
+
     public function create(){
         global $database;
-        $sql = "INSERT INTO users (username, password, first_name, last_name)";
+        $sql = "INSERT INTO " .self::$db_table . " (username, password, first_name, last_name)";
         $sql .= "VALUES ('";
         $sql .= $database->escape_string($this->username) . "', '";
         $sql .= $database->escape_string($this->password) . "', '";
@@ -127,7 +134,7 @@ return $the_object;
 
     public function update(){
         global $database;
-        $sql = "UPDATE users SET ";
+        $sql = "UPDATE  " .self::$db_table . "  SET ";
         $sql .= "username= '" . $database->escape_string($this->username) . "', ";
         $sql .= "password= '" . $database->escape_string($this->password) . "', ";
         $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
@@ -143,7 +150,7 @@ return $the_object;
 
     public function delete(){
         global $database;
-        $sql = "DELETE from users";
+        $sql = "DELETE from  " .self::$db_table . " ";
         $sql .= " WHERE id= " . $database->escape_string($this->id);
         $sql .= " LIMIT 1";
 
