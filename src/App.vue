@@ -6,7 +6,8 @@
     <Day1Counter />
     <!-- <Day1User /> -->
     <!-- <Day1Practice /> -->
-    <Day2Computed />
+    <!-- <Day2Computed /> -->
+    <Day2Watcher />
   </div>
 </template>
 
@@ -16,4 +17,5 @@ import Day1Counter from './components/Day1Counter.vue'
 import Day1User from './components/Day1User.vue'
 import Day1Practice from './components/Day1Practice.vue'
 import Day2Computed from './components/Day2Computed.vue'
+import Day2Watcher from './components/Day2Watcher.vue'
 </script>
