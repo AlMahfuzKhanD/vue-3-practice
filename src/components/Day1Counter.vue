@@ -15,7 +15,7 @@ function increment() {
 }
 </script>
 
-<style scoped>
+<style>
 h1 {
   color: teal;
 }
