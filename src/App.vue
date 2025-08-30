@@ -5,7 +5,8 @@
     <!-- Swap this line depending on what you want to test -->
     <Day1Counter />
     <!-- <Day1User /> -->
-    <Day1Practice />
+    <!-- <Day1Practice /> -->
+    <Day2Computed />
   </div>
 </template>
 
@@ -14,4 +15,5 @@
 import Day1Counter from './components/Day1Counter.vue'
 import Day1User from './components/Day1User.vue'
 import Day1Practice from './components/Day1Practice.vue'
+import Day2Computed from './components/Day2Computed.vue'
 </script>
