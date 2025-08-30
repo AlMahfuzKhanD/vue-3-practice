@@ -1,37 +1,15 @@
+<template>
+  <div>
+    <h1>Vue 3 Practice Playground</h1>
 
-  <template>
-  <h1>Like {{ likes }}</h1>
-  <button @click="like">Like</button>
-  <button @click="dislike">dislike</button>
+    <!-- Swap this line depending on what you want to test -->
+    <Day1Counter />
+    <!-- <Day2Computed /> -->
+  </div>
 </template>
 
-
 <script setup>
-import {ref} from 'vue'
-
-
-const likes = ref(0)
-
-function like(){
-  likes.value++
-}
-
-function dislike(){
-  likes.value--
-}
-
+// import Day2BMI from './components/Day2BMI.vue'
+import Day1Counter from './components/Day1Counter.vue'
+// import Day2Computed from './components/Day2Computed.vue'
 </script>
-<style>
-h1 {
-  color:teal
-}
-button{
-  margin-top: 10px;
-  padding: 10px 10px;
-  background-color:teal;
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-</style>
