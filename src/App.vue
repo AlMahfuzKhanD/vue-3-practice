@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vue 3 Practice Playground</h1>
+    <!-- <h1>Vue 3 Practice Playground</h1> -->
 
     <!-- Swap this line depending on what you want to test -->
     <!-- <Day1Counter /> -->
@@ -14,10 +14,11 @@
     <Day3Props name="Mahfuz" :age="22" /> -->
     <!-- <Day3Emit  @update="handleUpdate"/>
     <p>Latest count: {{ latestCount }}</p> -->
-    <Day3Slot>
+    <!-- <Day3Slot>
       <p>This is some content inside the card.</p>
       <button>Click Me</button>
-    </Day3Slot>
+    </Day3Slot> -->
+    <Day4TodoApp />
 
   </div>
 </template>
@@ -39,5 +40,6 @@
 //   latestCount.value = newValue;
 // }
 
-import Day3Slot from './components/Day3Slot.vue'
+// import Day3Slot from './components/Day3Slot.vue'
+import Day4TodoApp from './components/Day4TodoApp.vue';
 </script>
