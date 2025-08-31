@@ -10,8 +10,11 @@
     <!-- <Day2Watcher /> -->
     <!-- <Day2WatchEffect /> -->
     <!-- <Day2BMI /> -->
-    <Day3Props name="Alice" :age="30" />
-    <Day3Props name="Mahfuz" :age="22" />
+    <!-- <Day3Props name="Alice" :age="30" />
+    <Day3Props name="Mahfuz" :age="22" /> -->
+    <Day3Emit  @update="handleUpdate"/>
+    <p>Latest count: {{ latestCount }}</p>
+
   </div>
 </template>
 
@@ -24,5 +27,11 @@
 // import Day2Watcher from './components/Day2Watcher.vue'
 // import Day2WatchEffect from './components/Day2WatchEffect.vue'
 // import Day2BMI from './components/Day2BMI.vue'
-import Day3Props from './components/Day3Props.vue'
+// import Day3Props from './components/Day3Props.vue'
+import Day3Emit from './components/Day3Emit.vue';
+import { ref } from 'vue';
+const latestCount = ref(0);
+function handleUpdate(newValue){
+  latestCount.value = newValue;
+}
 </script>
